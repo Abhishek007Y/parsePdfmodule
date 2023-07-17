@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Passbook Parser</title>
+  </head>
+  <body>
+    <h1>Passbook Parser</h1>
+    <input type="file" id="file-input" />
+    <script src="passbook-parser.js"></script>
+    <script>
+      const fileInput = document.getElementById('file-input');
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files[0];
+        const reader = new FileReader();
+        reader.onload = () => {
+          const pdfBuffer = reader.result;
+          parsePdf(pdfBuffer);
+        };
+        reader.readAsArrayBuffer(file);
+      });
+    </script>
+  </body>
+</html>
