@@ -1,1 +1,3 @@
 # parsePdfmodule
+
+install nodemodules
